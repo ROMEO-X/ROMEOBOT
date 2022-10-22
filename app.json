@@ -11,7 +11,7 @@
     "modular",
     "productivity"
   ],
-  "repository": "https://github.com/Romeo-RJ/ROMEOBOT/",
+  "repository": "https://github.com/ROMEO-X/ROMEOBOT/",
   "env": {
     "ENV": {
       "description": "Setting this to ANYTHING will enable heroku.",
