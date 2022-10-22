@@ -9,7 +9,7 @@ _ROMEOBOT_MAIN() {
     $(_python_ 'from git import Repo
 import sys
 
-_UPSTREAM_ = "https://github.com/Romeo-RJ/ROMEOBOT"
+_UPSTREAM_ = "https://github.com/ROMEO-X/ROMEOBOT"
 _BRANCH_ = "master"
 
 repo = Repo.init()
@@ -21,12 +21,12 @@ repo.heads[_BRANCH_].checkout(True) ')
 
 _romeo_repo () {
     local hrepo
-    hrepo=`echo "aHR0cHM6Ly9naXRodWIuY29tL1JvbWVvUkowMTQzL1JPTUVPVVNFUkJPVA==" | base64 -d`
+    hrepo=`echo "aHR0cHM6Ly9naXRodWIuY29tL1JPTUVPLVgvUk9NRU9VU0VSQk9U" | base64 -d`
     echo "$rlink"
 }
 
 _romeo_zip () {
-    echo "aHR0cHM6Ly9naXRodWIuY29tL1JvbWVvUkowMTQzL1JPTUVPVVNFUkJPVC9hcmNoaXZlL21hc3Rlci56aXA=" | base64 -d
+    echo "aHR0cHM6Ly9naXRodWIuY29tL1JPTUVPLVgvUk9NRU9VU0VSQk9UL2FyY2hpdmUvbWFzdGVyLnppcA==" | base64 -d
 }
 
 _ROMEOBOT_PLUG() {
