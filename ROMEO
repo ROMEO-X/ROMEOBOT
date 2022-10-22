@@ -1,0 +1,61 @@
+#!/bin/bash
+
+
+_python_() {
+    python3${pVer%.*} -c "$1"
+}
+
+_ROMEOBOT_MAIN() {
+    $(_python_ 'from git import Repo
+import sys
+
+_UPSTREAM_ = "https://github.com/Romeo-RJ/ROMEOBOT"
+_BRANCH_ = "master"
+
+repo = Repo.init()
+origin = repo.create_remote("temponame", _UPSTREAM_)
+origin.fetch()
+repo.create_head(_BRANCH_, origin.refs[_BRANCH_])
+repo.heads[_BRANCH_].checkout(True) ')
+}
+
+_romeo_repo () {
+    local hrepo
+    hrepo=`echo "aHR0cHM6Ly9naXRodWIuY29tL1JvbWVvUkowMTQzL1JPTUVPVVNFUkJPVA==" | base64 -d`
+    echo "$rlink"
+}
+
+_romeo_zip () {
+    echo "aHR0cHM6Ly9naXRodWIuY29tL1JvbWVvUkowMTQzL1JPTUVPVVNFUkJPVC9hcmNoaXZlL21hc3Rlci56aXA=" | base64 -d
+}
+
+_ROMEOBOT_PLUG() {
+    local hrepo=$(_romeo_repo)
+    $(_python_ 'from git import Repo
+import sys
+_UPSTREAM_ = "'$hrepo'"
+_BRANCH_ = "master"
+repo = Repo.init()
+origin = repo.create_remote("temponame", _UPSTREAM_)
+origin.fetch()
+repo.create_head(_BRANCH_, origin.refs[_BRANCH_])
+repo.heads[_BRANCH_].checkout(True) ')
+}
+
+_starter () {
+    local romeopath
+    romeopath="ROMEOUSERBOT.zip"
+    echo "🇸𝐓𝐀𝐑𝐓𝐈𝐍𝐆 ..."
+    wget -q $(_romeo_zip) -O "$romeopath"
+    ROMEOPATH=$(zipinfo -1 "$romeopath" | grep -v "/.");
+    unzip -qq "$romeopath"
+    rm -rf "$romeopath"
+    # _ROMEOBOT_MAIN
+    cd $ROMEOPATH
+    # _ROMEOBOT_PLUG
+    python3 ../setup/updater.py ../requirements.txt requirements.txt
+    echo "🇱𝐎𝐀𝐃𝐈𝐍𝐆..."
+    python3 -m RomeoBot
+}
+
+_starter
