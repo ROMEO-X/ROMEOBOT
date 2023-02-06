@@ -38,6 +38,26 @@
       "description": "Get this value from @rjssgbot . Refer to Repo for more info.",
       "value": ""
     },
+    "SESSION_2": {
+      "description": "Get this value from @rjssgbot . Refer to Repo for more info.",
+      "value": ""
+      "required": false
+    },
+    "SESSION_3": {
+      "description": "Get this value from @rjssgbot . Refer to Repo for more info.",
+      "value": ""
+      "required": false
+    },
+    "SESSION_4": {
+      "description": "Get this value from @rjssgbot . Refer to Repo for more info.",
+      "value": ""
+      "required": false
+    },
+    "SESSION_5": {
+      "description": "Get this value from @rjssgbot . Refer to Repo for more info.",
+      "value": ""
+      "required": false
+    },
     "HEROKU_API_KEY": {
       "description": "Go to https://dashboard.heroku.com/account, scroll down and press Reveal API. Required for updater to work.",
       "value": ""
